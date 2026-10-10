@@ -2,6 +2,7 @@ name: learning- if- statement
 
 on:
   push:
+    branches: [main]
 
 jobs:
   test:
