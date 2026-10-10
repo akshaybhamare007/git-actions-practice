@@ -16,3 +16,10 @@ jobs:
 
       - name: Check current directory
         run: pwd
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build application
+        run: echo "Building application"
