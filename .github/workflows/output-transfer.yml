@@ -1,0 +1,31 @@
+name: gha-output-learning
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+
+    outputs: 
+      app_name: ${{ steps.metadata.outputs.app_name }}
+
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+
+      - name: app-name
+        id: metadata
+        run: echo "app_name=sample_api" >> "$GITHUB_OUTPUT"  
+
+  build:
+    needs: prepare
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: received application name
+        env:
+          APP_NAME: ${{ needs.prepare.outputs.app_name }}
+        run: echo "Building $APP_NAME"
