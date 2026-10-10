@@ -28,4 +28,5 @@ jobs:
     needs: [test, lint]
     steps:
       - name: Building application
-        run: echo "Building application"               
+        run: echo "Building application"
+
