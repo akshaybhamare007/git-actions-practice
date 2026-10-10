@@ -17,10 +17,9 @@ jobs:
       - name: Check current directory
         run: pwd
 
-      - name: Simulate test failure
-        run: exit 1        
+             
   build:
-    needs: test
+    
     runs-on: ubuntu-latest
 
     steps:
