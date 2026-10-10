@@ -19,7 +19,7 @@ jobs:
         run: echo "Checking code quality"  
 
       - name: Run only on main
-        if: github.ref == "/refs/heads/main"
+        if: github.ref == '/refs/heads/main'
         run: echo "we are inside main"
 
       - name: Run only outside main
