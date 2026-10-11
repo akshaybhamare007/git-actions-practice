@@ -22,8 +22,7 @@ jobs:
       - name: Report cache result
         env:
           CACHE_HIT: ${{ steps.learning-cache.outputs.cache-hit }}
-        run: |
-        echo "Exact cache hit: $CACHE_HIT"
+        run: echo "Exact cache hit $CACHE_HIT"
 
       - name: Create or read cached file
         run: |
