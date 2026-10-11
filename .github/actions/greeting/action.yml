@@ -1,0 +1,19 @@
+name: Greeting Composite Action
+description: A simple reusable greeting action
+
+inputs:
+  name:
+    description: Name to greet
+    required: false
+    default: CI/CD learner
+
+runs:
+  using: composite
+  steps:
+    - name: Print greeting
+      shell: bash
+      env:
+        GREETING_NAME: ${{ inputs.name }}
+      run: |
+        echo "Hello, $GREETING_NAME!"
+        echo "This message came from a composite action."
