@@ -17,7 +17,6 @@ jobs:
 
       - name: greeting user
         uses: ./.github/actions/greeting
-        with:
-          name: DevSecOps Engineer
+      
 
 
