@@ -1,0 +1,38 @@
+name: Cache Learning
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  cache-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Restore cache
+        id: learning-cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/learning
+          key: learning-cache-${{ runner.os }}-v1
+
+      - name: Report cache result
+        env:
+          CACHE_HIT: ${{ steps.learning-cache.outputs.cache-hit }}
+        run: echo "Exact cache hit: $CACHE_HIT"
+
+      - name: Create or read cached file
+        run: |
+          mkdir -p .cache/learning
+
+          if [ -f .cache/learning/message.txt ]; then
+            echo "File restored from cache:"
+            cat .cache/learning/message.txt
+          else
+            echo "Cache miss: creating file"
+            date -u +"%Y-%m-%dT%H:%M:%SZ" > .cache/learning/message.txt
+            cat .cache/learning/message.txt
+          fi
