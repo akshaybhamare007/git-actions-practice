@@ -1,0 +1,44 @@
+name: artifacts-learning
+
+on:
+  push:
+    branches: [main]
+
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+
+      - name: create directory
+        run: |
+          mkdir -p app-name
+          echo "Application folder created"      
+
+      - name: package application
+        run: echo "creating a text file and storing in app.txt" > app-name/app.txt
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: app-package
+          path: app-name/app.txt
+
+  consume:
+    runs-on: ubuntu-latest
+    needs: produce
+
+    steps:    
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: app-package 
+          path: downloaded-artifact
+
+      - name: Read Downloaded artifact
+        run: cat downloaded-artifact/app.txt    
+
+
