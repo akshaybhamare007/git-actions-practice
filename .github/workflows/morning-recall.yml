@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: build app
-        if: github.ref == 'refs/heads/main' && github.event_name==push
-        ENV: 
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        env: 
           APP_NAME: ${{needs.prepare.outputs.app_name}}
         run: echo "Building $APP_NAME"
