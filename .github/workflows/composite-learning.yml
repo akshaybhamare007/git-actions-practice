@@ -1,0 +1,20 @@
+name: composite-learning
+
+on:
+  workflow_dispatch:
+
+  
+jobs:
+  test-composite:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+
+      - name: greeting user
+        uses: ./.github/actions/greeting
+        with:
+          name: DevSecOps Engineer
+
+
