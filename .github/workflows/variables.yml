@@ -36,4 +36,8 @@ jobs:
 
       - name: print metadata variable
         run: |
-          echo "Repository_Name is: $GITHUB_REPOSITORY"   
+          echo "Repository_Name is: $GITHUB_REPOSITORY"
+
+      - name: gha-secrets-learning
+        run: |
+          echo "my first secret, ${{secrets.my_key}}"          
