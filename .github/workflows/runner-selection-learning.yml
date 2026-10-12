@@ -1,0 +1,33 @@
+
+name: Runner Selection Learning
+
+on:
+  workflow_dispatch:
+
+jobs:
+  github-hosted:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect GitHub-hosted runner
+        run: |
+          echo "Runner: ${{ runner.name }}"
+          echo "OS: ${{ runner.os }}"
+          echo "Architecture: ${{ runner.arch }}"
+          echo "Hostname:"
+          hostname
+          echo "Workspace:"
+          pwd
+
+  self-hosted:
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+      - name: Inspect self-hosted runner
+        run: |
+          echo "Runner: ${{ runner.name }}"
+          echo "OS: ${{ runner.os }}"
+          echo "Architecture: ${{ runner.arch }}"
+          echo "Hostname:"
+          hostname
+          echo "Workspace:"
+          pwd
+

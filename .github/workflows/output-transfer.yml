@@ -1,8 +1,7 @@
 name: gha-output-learning
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   prepare:
