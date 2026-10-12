@@ -1,0 +1,29 @@
+name: variables-learning
+
+on:
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+env:
+  global_variable: global
+
+jobs: 
+  variable-learning:
+    runs-on: ubuntu-latest
+
+    env:
+      job_variable: job
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+
+      - name: print step level variable
+        env: 
+          steps_variable: step
+        run: echo "this variable is, "$steps_variable" is"  
+
+      - name: print job level variable
+        run: echo "this variable is, "$job_variable" is" 
