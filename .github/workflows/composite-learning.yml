@@ -22,6 +22,6 @@ jobs:
       - name: consume greeting output
         env:
           GREETING: $ {{steps.greeting.outputs.greeting}}
-        run: echo "Received output from composite action: $GREETING"
+        run: echo "Received output from composite action:$GREETING"
 
 
