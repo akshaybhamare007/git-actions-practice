@@ -11,7 +11,7 @@ env:
 
 jobs: 
   variable-learning:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     env:
       job_variable: job
