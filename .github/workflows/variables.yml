@@ -32,4 +32,8 @@ jobs:
         run: echo "this is workflow level variable:, "$global_variable" "
 
       - name: print configuration variable
-        run: echo "Hello Akki, this step shows config variable, ${{vars.PROJECT_ID}}"        
+        run: echo "Hello Akki, this step shows config variable, ${{vars.PROJECT_ID}}"    
+
+      - name: print metadata variable
+        run: |
+          echo "Repository_Name is: $GITHUB_REPOSITORY"   
