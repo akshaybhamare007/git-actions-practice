@@ -12,6 +12,21 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v6
 
+      - name: Inspect runner
+        env:
+          RUNNER_OS: ${{ runner.os }}
+          RUNNER_ARCH: ${{ runner.arch }}
+          WORKSPACE: ${{ github.workspace }}
+          TEMP_DIR: ${{ runner.temp }}
+        run: |
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner architecture: $RUNNER_ARCH"
+          echo "Workspace: $WORKSPACE"
+          echo "Temporary directory: $TEMP_DIR"
+          echo "Current directory: $(pwd)"
+          echo "System information:"
+          uname -a        
+
       - name: greeting user
         id: greeting
         uses: ./.github/actions/greeting
@@ -21,5 +36,4 @@ jobs:
       - name: consume greeting output
         env:
           GREETING: ${{steps.greeting.outputs.greeting}}
-        run: echo "Received output from composite action:, $GREETING "
-
+        run: echo "Received output from composite action:, $GREETING"
