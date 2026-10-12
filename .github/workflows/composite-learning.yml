@@ -26,4 +26,3 @@ jobs:
           GREETING: ${{steps.greeting.outputs.greeting}}
         run: echo "Received output from composite action:$GREETING"
 
-
