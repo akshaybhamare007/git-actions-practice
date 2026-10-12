@@ -28,5 +28,6 @@ jobs:
       - name: print job level variable
         run: echo "this is job level variable:, "$job_variable" "  
 
-
+      - name: print workflow level variable
+        run: echo "this is workflow level variable:, "$global_variable" "
 
