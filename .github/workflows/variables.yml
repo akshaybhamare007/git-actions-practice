@@ -40,4 +40,4 @@ jobs:
 
       - name: gha-secrets-learning
         run: |
-          echo "my first secret, ${{secrets.my_key}}"          
+          echo "my first secret, ${{secrets.MY_KEY}}"          
