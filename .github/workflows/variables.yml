@@ -23,7 +23,10 @@ jobs:
       - name: print step level variable
         env: 
           steps_variable: step
-        run: echo "this variable is, "$steps_variable" is"  
+        run: echo "this is step level variable:, "$steps_variable" "  
 
       - name: print job level variable
-        run: echo "this variable is, "$job_variable" is" 
+        run: echo "this is job level variable:, "$job_variable" "  
+
+
+
