@@ -32,4 +32,4 @@ jobs:
         run: echo "this is workflow level variable:, "$global_variable" "
 
       - name: print configuration variable
-        run: echo "Hello Akki, this step shows config variable, $ {{var.PROJECT_ID}}"        
+        run: echo "Hello Akki, this step shows config variable, ${{var.PROJECT_ID}}"        
