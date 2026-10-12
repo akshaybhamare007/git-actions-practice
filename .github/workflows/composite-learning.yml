@@ -19,7 +19,7 @@ jobs:
         id: greeting
         uses: ./.github/actions/greeting
         with:
-          name: ""
+          name: "Akshay"
 
       - name: consume greeting output
         env:
