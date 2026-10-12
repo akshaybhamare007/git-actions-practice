@@ -16,7 +16,12 @@ jobs:
         uses: actions/checkout@v6
 
       - name: greeting user
+        id: greeting
         uses: ./.github/actions/greeting
       
+      - name: consume greeting output
+        env:
+          GREETING: $ {{steps.greeting.outputs.greeting}}
+        run: echo "Received output from composite action: $GREETING"
 
 
