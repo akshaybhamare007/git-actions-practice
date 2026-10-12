@@ -21,6 +21,11 @@ runs:
       env:
         GREETING_NAME: ${{ inputs.name }}
       run: |
+        if [[ -z "$GREETING_NAME" ]]; then
+          echo "Error: input 'name' must not be empty." >&2
+          exit 1
+        fi
+
         greeting="Hello, ${GREETING_NAME}!"
         echo "greeting=$greeting" >> "$GITHUB_OUTPUT"
         echo "$greeting"
