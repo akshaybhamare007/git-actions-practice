@@ -21,6 +21,6 @@ runs:
       env:
         GREETING_NAME: ${{ inputs.name }}
       run: |
-        greeting= "Hello,${GREETING_NAME}"
+        greeting="Hello, ${GREETING_NAME}!"
         echo "greeting=$greeting" >> "$GITHUB_OUTPUT"
         echo "$greeting"
