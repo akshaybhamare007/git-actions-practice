@@ -18,7 +18,9 @@ jobs:
       - name: greeting user
         id: greeting
         uses: ./.github/actions/greeting
-      
+        with:
+          name: ""
+
       - name: consume greeting output
         env:
           GREETING: ${{steps.greeting.outputs.greeting}}
