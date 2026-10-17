@@ -11,7 +11,7 @@ permissions:
 env:
   PROJECT_ID: project-1648e0b0-962d-4b00-8de
   REGION: asia-south1
-  REPOSITORY: github-actions-images
+  REPOSITORY: github-actions-image
   IMAGE_NAME: python-demo
   SERVICE: python-demo-service
   RUNTIME_SERVICE_ACCOUNT: cloud-run-runtime@project-1648e0b0-962d-4b00-8de.iam.gserviceaccount.com
