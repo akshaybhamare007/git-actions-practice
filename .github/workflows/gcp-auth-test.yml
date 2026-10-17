@@ -1,0 +1,33 @@
+
+name: GCP OIDC Authentication Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  authenticate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: project-1648e0b0-962d-4b00-8de
+          workload_identity_provider: projects/247396862954/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: github-actions-deployer@project-1648e0b0-962d-4b00-8de.iam.gserviceaccount.com
+
+      - name: Set up Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Verify Cloud Run access
+        run: |
+          gcloud run services list \
+            --project=project-1648e0b0-962d-4b00-8de \
+            --region=asia-south1
