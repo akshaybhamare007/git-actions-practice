@@ -55,7 +55,7 @@ jobs:
             --platform managed \
             --port 8080 \
             --service-account "$RUNTIME_SERVICE_ACCOUNT" \
-            --set-env-vars APP_ENV=production \
+            --set-env-vars APP_ENV="APP_ENV=production,GCS_BUCKET=akki-demo-bucket,GCS_OBJECT=Hello.txt" \
             --allow-unauthenticated \
             --quiet
 
