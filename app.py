@@ -20,7 +20,7 @@ def health():
 
 @app.get("/private-file")
 def read_private_file():
-    bucket_name = os.getenv("GCS_BUCKET", "akki-demo-bucket")
+    bucket_name = os.getenv("GCS_BUCKET", "test-bucket-akshay")
     object_name = os.getenv("GCS_OBJECT", "Hello.txt")
 
     try:
